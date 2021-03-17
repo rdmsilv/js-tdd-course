@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Async/Await Multiple Promisses </title>
+</head>
+<body>
+    <script>
+        async function getUsers(users){
+            const promises = users.map(user => fetch(`https://api.github.com/users/${user}`).then(r => r.json()));
+            
+            const people = await Promise.all(promises);
+            console.log(people);
+
+        }
+        getUsers(['rdmsilv']);
+    </script>
+
+</body>
+</html>

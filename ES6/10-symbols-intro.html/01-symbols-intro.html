@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Symbols Intro</title>
+</head>
+<body>
+    <script>
+        let foo = Symbol('name');
+        let bar = Symbol('name');
+
+
+        //console.log(foo)
+
+        let obj = {
+            [Symbol('name')]: 'Rudimar',
+            [Symbol('age')]: 29,
+            city: 'São Paulo'
+        };
+
+        const simbols = Object.getOwnPropertySymbols(obj);
+
+        const data = simbols.map(sym => obj[sym]);
+        console.log(data)
+    </script>
+</body>
+</html>

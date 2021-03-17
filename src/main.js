@@ -1,9 +1,5 @@
- d = 20;
-const a = 2;
-const b= 4;
-const c = 'rdm'
+const d = 20;
 function sum(){
-    return a+ b+ c + d;
+    return d;
 }
-
 sum();

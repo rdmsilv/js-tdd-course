@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Promoses Múltiplas</title>
+</head>
+<body>
+    <script>
+        const currency = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({currency: 'euro', valor: 3.50});
+            }, 2000);
+        });
+
+        const countries = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(['São Paulo', 'Salvador', 'Feira de Santana']);
+            }, 600);
+        });
+
+        Promise
+        .all([currency, countries])
+        .then(response =>{
+            console.log(response);
+        });
+
+        Promise
+        .race([currency, countries])
+        .then(response =>{
+            console.log(response);
+        });
+    </script>
+</body>
+</html>

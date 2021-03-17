@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Detructuring Objects</title>
+</head>
+<body>
+    <script>
+        var data = {
+            name:'Rudimar',
+            lastName:'Silva',
+            age: 29,
+            github: 'https://github.com/rdmsilv',
+            social: {
+              linkedin:'https://www.linkedin.com/in/rudimar-silva/'
+            }
+        };
+
+       /* const name = data.name;
+        const lastName = data.lastName;
+        const linkedin = data.social.linkedin;
+        console.log(name);
+        console.log(lastName);
+        console.log(linkedin);*/
+       
+        const {name,lastName} = data;
+        console.log(name);
+        console.log(lastName);
+       
+        const {linkedin} = data.social;
+        console.log(linkedin);
+
+        const {linkedin: lk} = data.social
+        console.log(lk);
+
+        const {city = 'São Paulo'} = data;
+        console.log(city)
+    </script>
+</body>
+</html>

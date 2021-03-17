@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - Object.entries</title>
+</head>
+<body>
+    <script>
+        const animais = {
+            camelo: 3,
+            leao: 2,
+            macaco: 5,
+        };
+
+        const animaisMap = new Map(Object.entries(animais));
+
+        console.log(animaisMap.size);
+        console.log(animaisMap.has('leao'));
+        console.log(animaisMap.has('dog'));
+        console.log(animaisMap.get('leao'));
+
+    </script>
+</body>
+</html>
