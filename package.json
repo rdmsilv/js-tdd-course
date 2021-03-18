@@ -4,10 +4,21 @@
   "description": "Nossa biblioteca do curso de JS com TDD na prática.",
   "main": "app.js",
   "scripts": {
-    "lint": "eslint src/*.js",
-    "prepush": "npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch"
+    "clear": "rimraf lib",
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -21,8 +32,8 @@
   "author": "Rudimar Silva <rudimar09silva@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gitignore": "^0.6.0",
-    "ramda": "^0.27.1"
+    "gitignore": "^0.6.0"
+
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
